@@ -6,11 +6,11 @@ pipeline {
     }
     stages {
         stage('Checkout Source') {
-            steps {
-                echo 'Checking out source code...'
-                git 'https://github.com/rollinopz/brightmind-tech.git'
-            }
-        }
+    steps {
+        echo 'Checking out source code...'
+        git branch: 'main', url: 'https://github.com/rollinopz/brightmind-tech.git'
+    }
+}
         stage('Build') {
             steps {
                 echo 'Compiling the application...'
