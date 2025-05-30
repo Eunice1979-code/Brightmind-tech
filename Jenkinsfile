@@ -8,7 +8,7 @@ pipeline {
         stage('Checkout Source') {
     steps {
         echo 'Checking out source code...'
-        git branch: 'main', url: 'https://github.com/rollinopz/brightmind-tech.git'
+        git branch: 'main', url: 'https://github.com/Eunice1979-code/Brightmind-tech.git'
     }
 }
         stage('Build') {
@@ -33,15 +33,15 @@ pipeline {
             steps {
                 echo 'Deploying to Tomcat...'
                 script {
-                    def warFile = "target/brightmind-tech.war"
+                    def warFile = "target/Brightmind-tech.war"
                     if (fileExists(warFile)) {
                         deploy adapters: [
                             tomcat9(
                                 credentialsId: 'TomcatCreds',
-                                url: 'http://localhost:8084'
+                                url: 'http://localhost:8080'
                             )
                         ], 
-                        contextPath: '/brightmind-tech',
+                        contextPath: '/Brightmind-tech',
                         war: warFile
                     } else {
                         error "ERROR: WAR file ${warFile} not found!"
